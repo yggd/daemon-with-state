@@ -1,0 +1,37 @@
+spring:
+  datasource:
+    url: jdbc:h2:file:~/.h2/batch5-test;AUTO_SERVER=TRUE
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
+    initialize: true
+    platform: h2
+  batch:
+    initializer:
+      enabled: true
+    job:
+      enabled: false
+management:
+  security:
+    enabled: false
+
+app:
+  task-executor:
+    size: 3
+    capacity: 10
+  udp:
+    listen-port: 12345
+    so-timeout: 10000
+    buffer-size: 1024
+    encoding: UTF-8
+  polling:
+    row-limit: 50
+
+mybatis:
+  configuration:
+    default-fetch-size: 50
+    default-statement-timeout: 10
+    cache-enabled: true
+    lazy-loading-enabled: false
+    local-cache-scope: statement
+    default-executor-type: reuse
