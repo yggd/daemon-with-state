@@ -19,12 +19,25 @@ public class PauseState implements State {
     @Autowired
     private PollingState pollingState;
 
+    @Autowired
+    private ShutdownState shutdownState;
+
     @Override
     public void action(StateContext context) throws InterruptedException {
         logger.info("enter PauseState");
         final ReceiveMessage receive = receiver.receive();
-        if (RequestState.RESTART == receive.getState()){
-            context.setState(pollingState);
+        switch (receive.getState()) {
+            case POLLING:
+                context.setState(pollingState);
+                break;
+            case RESTART:
+                context.setState(pollingState);
+                break;
+            case SHUTDOWN:
+                context.setState(shutdownState);
+                break;
+            default:
+                // do nothing.
         }
         // ignore other state (e.g., polling with so_timeout)
     }
