@@ -28,7 +28,7 @@ $ java -jar daemon-with-state-0.0.1-SNAPSHOT.jar
 ポーリング再開(restart)メッセージを送ることでPOLLING状態に戻る。
 * 遷移可能なステータスは下図参照
 
-![statusflow image](http://www.plantuml.com/plantuml/png/SoWkIImgAStDuOhMYbNGrRLJ2F3tyV7qS-U2qiXYLWe5-JavcNdfg9AEeS6k2a2vnDBYL1IPO8_G41V_S3-WP756QKbAVdaU5qGrag50oQ9Ki2kuuEf1qa3tS3cavgK0tGO0 "有効な状態遷移")
+![statusflow image](http://www.plantuml.com/plantuml/png/SoWkIImgAStDuOhMYbNGrRLJ2F3tyV7qS-U2qX0nnz1WLmKhXOB4qk9KBWWFIIrGfYWLR92EGa5-JavcNZggThWok2pSY62Fq10N_t0_e6HnHcb9Idvv7efURF9mCP02eBkv75BpKa1-0000 "有効な状態遷移")
 
 ## メッセージの送信
 * UDP（以降、アプリケーション起動ホスト localhost ポート 12345 とする。）で、起動中のアプリケーションホストに"mode=XXXX"の形式で送信する。
